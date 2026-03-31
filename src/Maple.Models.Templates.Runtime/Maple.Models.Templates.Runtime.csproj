@@ -1,0 +1,45 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <RootNamespace>Maple.Models.Templates.Runtime</RootNamespace>
+    <IsPackable>true</IsPackable>
+
+    <IsTrimmable>true</IsTrimmable>
+    <IsAotCompatible>true</IsAotCompatible>
+    <EnableTrimAnalyzer>true</EnableTrimAnalyzer>
+    <EnableAOTAnalyzer>true</EnableAOTAnalyzer>
+
+    <Description>Runtime template catalog types for Maple.Models — concrete catalog implementations and runtime-loaded template state. Cross-platform, trimmable and AOT/NativeAOT compatible.</Description>
+
+    <PackageId>Maple.Models.Templates.Runtime</PackageId>
+    <PackageTags>maplestory;catalog;templates;runtime;models</PackageTags>
+    <PackageIcon>Icon.png</PackageIcon>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageProjectUrl>https://github.com/Bia10/Maple.Models/</PackageProjectUrl>
+    <PackageReleaseNotes>https://github.com/Bia10/Maple.Models/releases</PackageReleaseNotes>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <RepositoryUrl>https://github.com/Bia10/Maple.Models/</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+
+    <ContinuousIntegrationBuild Condition="'$(GITHUB_ACTIONS)' == 'true'">true</ContinuousIntegrationBuild>
+    <ContinuousIntegrationBuild Condition="'$(TF_BUILD)' == 'true'">true</ContinuousIntegrationBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="../../Icon.png" Pack="true" PackagePath="\" />
+    <None Include="../../README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Maple.Models\Maple.Models.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Meziantou.Analyzer" PrivateAssets="All" />
+  </ItemGroup>
+</Project>

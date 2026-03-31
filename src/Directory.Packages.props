@@ -1,0 +1,26 @@
+<Project>
+  <PropertyGroup>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Build infrastructure -->
+    <PackageVersion Include="MinVer" Version="7.0.0" />
+    <PackageVersion Include="CSharpier.MsBuild" Version="1.2.6" />
+
+    <!-- Testing -->
+    <PackageVersion Include="TUnit" Version="1.19.16" />
+    <PackageVersion Include="PublicApiGenerator" Version="11.5.4" />
+
+    <!-- Benchmarks -->
+    <PackageVersion Include="BenchmarkDotNet" Version="0.15.8" />
+    <PackageVersion Include="BenchmarkDotNet.Diagnostics.Windows" Version="0.15.8" />
+
+    <!-- Analyzers -->
+    <PackageVersion Include="Meziantou.Analyzer" Version="3.0.39" />
+
+    <!-- Domain dependencies -->
+    <PackageVersion Include="Maple.StrongId" Version="0.1.0" />
+    <PackageVersion Include="Maple.Enums" Version="0.4.0" />
+  </ItemGroup>
+</Project>
