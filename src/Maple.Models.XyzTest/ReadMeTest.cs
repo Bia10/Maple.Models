@@ -3,6 +3,8 @@
 
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
+using Maple.Models.Common;
+using Maple.Models.Items.Stats;
 using PublicApiGenerator;
 
 namespace Maple.Models.XyzTest;
@@ -16,11 +18,19 @@ public partial class ReadMeTest
         Path.GetFullPath(Path.Combine(Path.GetDirectoryName(s_testSourceFilePath)!, "..", ".."))
         + Path.DirectorySeparatorChar;
     static readonly string s_readmeFilePath = s_rootDirectory + "README.md";
+    static readonly string s_publicApiFilePath =
+        s_rootDirectory + "docs" + Path.DirectorySeparatorChar + "PublicApi.md";
 
     [Test]
     public void ReadMeTest_()
     {
-        MapleModels.Empty();
+        // Create a color from a raw WZ ARGB value (e.g. from item data)
+        var color = ArgbColor.FromInt32(-16777216); // 0xFF000000 = opaque black
+        Console.WriteLine(color.ToHexString()); // #FF000000
+
+        // Build the base attribute stats contributed by an equip
+        var stats = new CharacterBaseStats(STR: 10, DEX: 5, INT: 0, LUK: 3);
+        Console.WriteLine($"STR: {stats.STR}  DEX: {stats.DEX}"); // STR: 10  DEX: 5
     }
 
 #if NET10_0
@@ -85,6 +95,11 @@ public partial class ReadMeTest
         }
 
         var processorDirectories = Directory.EnumerateDirectories(benchmarksDirectory).ToArray();
+        if (processorDirectories.Length == 0)
+        {
+            return;
+        }
+
         var readmeLines = File.ReadAllLines(readmeFilePath);
 
         foreach (var (fileName, config) in benchmarkFileNameToConfig)
@@ -129,16 +144,10 @@ public partial class ReadMeTest
 #endif
     public void ReadMeTest_PublicApi()
     {
-        if (!File.Exists(s_readmeFilePath))
-        {
-            return;
-        }
-
         var publicApi = typeof(MapleModels).Assembly.GeneratePublicApi();
-        var readmeLines = File.ReadAllLines(s_readmeFilePath);
-        readmeLines = ReplaceReadmeLines(readmeLines, [publicApi], "## Public API Reference", "```csharp", 1, "```", 0);
-        var newReadme = string.Join(Environment.NewLine, readmeLines) + Environment.NewLine;
-        File.WriteAllText(s_readmeFilePath, newReadme, System.Text.Encoding.UTF8);
+        var content =
+            $"# Maple.Models Public API{Environment.NewLine}{Environment.NewLine}```csharp{Environment.NewLine}{publicApi}```{Environment.NewLine}";
+        File.WriteAllText(s_publicApiFilePath, content, System.Text.Encoding.UTF8);
     }
 
     static string[] UpdateReadme(
