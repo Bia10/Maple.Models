@@ -1,0 +1,6 @@
+<Project>
+  <!-- Enable the new dotnet test MTP experience required for .NET 10 SDK + TUnit -->
+  <PropertyGroup>
+    <TestingPlatformDotnetTestSupport>true</TestingPlatformDotnetTestSupport>
+  </PropertyGroup>
+</Project>
