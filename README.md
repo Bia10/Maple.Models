@@ -4,14 +4,22 @@
 ![C#](https://img.shields.io/badge/C%23-14.0-239120?labelColor=gray)
 [![Build Status](https://github.com/Bia10/Maple.Models/actions/workflows/dotnet.yml/badge.svg?branch=main)](https://github.com/Bia10/Maple.Models/actions/workflows/dotnet.yml)
 [![codecov](https://codecov.io/gh/Bia10/Maple.Models/branch/main/graph/badge.svg)](https://codecov.io/gh/Bia10/Maple.Models)
-[![Nuget](https://img.shields.io/nuget/v/Maple.Models?color=purple)](https://www.nuget.org/packages/Maple.Models/)
 [![License](https://img.shields.io/github/license/Bia10/Maple.Models)](https://github.com/Bia10/Maple.Models/blob/main/LICENSE)
 
-Immutable MapleStory DTO and catalog record types: templates, server snapshots, and shared value objects. Cross-platform, trimmable and AOT/NativeAOT compatible.
+MapleStory model types: immutable DTOs and catalog records, plus mutable runtime state for persistence and editors. Cross-platform, trimmable and AOT/NativeAOT compatible.
 
 ⭐ Please star this project if you like it. ⭐
 
 [Example](#example) | [Example Catalogue](#example-catalogue) | [Public API Reference](docs/PublicApi.md)
+
+## Packages
+
+| Package | NuGet | Description |
+| ------- | ----- | ----------- |
+| **Maple.Models** | [![Nuget](https://img.shields.io/nuget/v/Maple.Models?color=purple)](https://www.nuget.org/packages/Maple.Models/) | Immutable DTOs and catalog record types: templates, server snapshots, and shared value objects |
+| **Maple.Models.Runtime** | [![Nuget](https://img.shields.io/nuget/v/Maple.Models.Runtime?color=purple)](https://www.nuget.org/packages/Maple.Models.Runtime/) | Mutable runtime state: character/account snapshots, inventories, item slots, quest and skill records, and AOT-safe JSON serialization |
+
+All packages are cross-platform, trimmable and AOT/NativeAOT compatible.
 
 ## Example
 
