@@ -1,8 +1,8 @@
-namespace Maple.Models.Users.Stats;
+﻿namespace Maple.Models.Users.Stats;
 
 /// <summary>
 /// Persisted guided-bullet temporary-stat section.
-/// Extends the standard payload with <see cref="MobID"/> — the mob currently locked
+/// Extends the standard payload with <see cref="MobId"/> — the mob currently locked
 /// by the Mechanic's Guided Bullet skill.
 /// Detailed runtime-schema notes are centralized in <c>docs/runtime-temporary-stats.md</c>.
 /// </summary>
@@ -12,7 +12,7 @@ public sealed class TemporaryStatGuidedBulletRecord
     /// Mob template ID currently targeted and tracked by the guided bullet.
     /// 0 when no target is locked.
     /// </summary>
-    public int MobID { get; set; }
+    public int MobId { get; set; }
 
     /// <summary>Wall-clock timestamp of the last application or refresh of this buff.</summary>
     public DateTime DateUpdated { get; set; }

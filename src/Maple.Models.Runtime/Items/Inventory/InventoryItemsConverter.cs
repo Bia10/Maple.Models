@@ -1,4 +1,4 @@
-using System.Globalization;
+﻿using System.Globalization;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using Maple.Models.Items.Slots;
@@ -10,7 +10,7 @@ namespace Maple.Models.Items.Inventory;
 /// JSON converter for slot-addressed inventories whose values are serialized through the
 /// <see cref="IItemSlot"/> polymorphic contract.
 /// </summary>
-internal sealed class InventoryItemsConverter : JsonConverter<IReadOnlyDictionary<short, IItemSlot>>
+public sealed class InventoryItemsConverter : JsonConverter<IReadOnlyDictionary<short, IItemSlot>>
 {
     /// <inheritdoc/>
     public override IReadOnlyDictionary<short, IItemSlot> Read(
