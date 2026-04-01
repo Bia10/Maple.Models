@@ -60,7 +60,7 @@ jobs:
           dotnet run --project src/Maple.Models.DocTest/Maple.Models.DocTest.csproj -c ${{ matrix.configuration }} --no-build
 
   coverage:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Harden Runner
         uses: step-security/harden-runner@fa2e9d605c4eeb9fcad4c99c224cee0c6c7f3594 # v2.16.0
