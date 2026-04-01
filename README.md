@@ -49,7 +49,7 @@ Benchmarks.
 
 ## Example Catalogue
 
-The following examples are available in [ReadMeTest.cs](src/Maple.Models.XyzTest/ReadMeTest.cs).
+The following examples are available in [ReadMeTest.cs](src/Maple.Models.DocTest/ReadMeTest.cs).
 
 ### Example - Empty
 

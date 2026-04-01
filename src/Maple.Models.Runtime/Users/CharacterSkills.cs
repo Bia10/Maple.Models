@@ -1,4 +1,4 @@
-namespace Maple.Models.Users;
+﻿namespace Maple.Models.Users;
 
 /// <summary>
 /// Character skill records keyed by skill template identifier.

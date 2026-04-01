@@ -1,4 +1,4 @@
-namespace Maple.Models.Users;
+﻿namespace Maple.Models.Users;
 
 /// <summary>
 /// Character quest-completion records keyed by quest identifier.

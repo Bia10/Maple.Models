@@ -1,4 +1,4 @@
-namespace Maple.Models.Users;
+﻿namespace Maple.Models.Users;
 
 /// <summary>
 /// Character quick-slot bindings keyed by slot index.

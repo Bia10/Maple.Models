@@ -1,4 +1,4 @@
-namespace Maple.Models.Users;
+﻿namespace Maple.Models.Users;
 
 /// <summary>
 /// Per-job-level SP pools for multi-advancement jobs.

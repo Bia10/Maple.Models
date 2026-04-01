@@ -1,4 +1,4 @@
-namespace Maple.Models.Users;
+﻿namespace Maple.Models.Users;
 
 /// <summary>
 /// Wild-Hunter-specific persisted capture state.

@@ -3,7 +3,7 @@
   <Project Path="src/Maple.Models.Runtime/Maple.Models.Runtime.csproj" />
   <Project Path="src/Maple.Models.Templates.Runtime/Maple.Models.Templates.Runtime.csproj" />
   <Project Path="src/Maple.Models.Test/Maple.Models.Test.csproj" />
-  <Project Path="src/Maple.Models.XyzTest/Maple.Models.XyzTest.csproj" />
+  <Project Path="src/Maple.Models.DocTest/Maple.Models.DocTest.csproj" />
   <Project Path="src/Maple.Models.Benchmarks/Maple.Models.Benchmarks.csproj" />
   <Project Path="src/Maple.Models.ComparisonBenchmarks/Maple.Models.ComparisonBenchmarks.csproj" />
   <Project Path="src/Maple.Models.Tester/Maple.Models.Tester.csproj" />

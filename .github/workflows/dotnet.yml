@@ -57,7 +57,35 @@ jobs:
         # TUnit uses MTP; dotnet test + MTP 2.1.0 on .NET 10 SDK requires running the test exe directly
         run: |
           dotnet run --project src/Maple.Models.Test/Maple.Models.Test.csproj -c ${{ matrix.configuration }} --no-build
-          dotnet run --project src/Maple.Models.XyzTest/Maple.Models.XyzTest.csproj -c ${{ matrix.configuration }} --no-build
+          dotnet run --project src/Maple.Models.DocTest/Maple.Models.DocTest.csproj -c ${{ matrix.configuration }} --no-build
+
+  coverage:
+    runs-on: windows-latest
+    steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@fa2e9d605c4eeb9fcad4c99c224cee0c6c7f3594 # v2.16.0
+        with:
+          egress-policy: audit
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
+      - name: Setup .NET (global.json)
+        uses: actions/setup-dotnet@c2fa09f4bde5ebb9d1777cf28262a3eb3db3ced7 # v5
+        with:
+          global-json-file: global.json
+      - name: Restore dependencies
+        run: dotnet restore
+      - name: Build
+        run: dotnet build -c Release --no-restore
+      - name: Install dotnet-coverage
+        run: dotnet tool install --global dotnet-coverage
+      - name: Collect coverage
+        run: |
+          dotnet-coverage collect --output TestResults/coverage.test.xml --output-format cobertura -- dotnet run --project src/Maple.Models.Test/Maple.Models.Test.csproj -c Release --no-build -- --no-ansi
+          dotnet-coverage collect --output TestResults/coverage.doctest.xml --output-format cobertura -- dotnet run --project src/Maple.Models.DocTest/Maple.Models.DocTest.csproj -c Release --no-build -- --no-ansi
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@57e3a136b779b570ffcdbf80b3bdc90e7fab3de2 # v6.0.0
+        with:
+          files: TestResults/coverage.test.xml,TestResults/coverage.doctest.xml
+          token: ${{ secrets.CODECOV_TOKEN }}
 
   format:
     runs-on: ubuntu-latest
@@ -107,7 +135,7 @@ jobs:
           path: ${{ env.NuGetDirectory }}/*nupkg
 
   create-release-push:
-    needs: [build-and-test, format, pack]
+    needs: [build-and-test, format, coverage, pack]
     runs-on: windows-latest
     permissions:
       contents: write

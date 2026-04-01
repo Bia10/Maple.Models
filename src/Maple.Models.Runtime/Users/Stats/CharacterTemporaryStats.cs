@@ -1,4 +1,4 @@
-using Maple.Enums;
+﻿using Maple.Enums;
 
 namespace Maple.Models.Users.Stats;
 

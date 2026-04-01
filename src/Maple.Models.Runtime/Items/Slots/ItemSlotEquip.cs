@@ -1,4 +1,4 @@
-using Maple.Enums;
+﻿using Maple.Enums;
 using Maple.Models.Items.Stats;
 using Maple.StrongId;
 

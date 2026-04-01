@@ -1,4 +1,4 @@
-using Maple.Models.Items.Slots;
+﻿using Maple.Models.Items.Slots;
 
 namespace Maple.Models.Items.Storage;
 
