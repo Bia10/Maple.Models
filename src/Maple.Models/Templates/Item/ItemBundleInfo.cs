@@ -1,4 +1,4 @@
-using Maple.Enums;
+﻿using Maple.Enums;
 using Maple.StrongId;
 
 namespace Maple.Models.Templates.Item;
@@ -74,6 +74,9 @@ public sealed record ItemBundleInfo
 
     /// <summary>Gets the quest that must be in progress.</summary>
     public QuestTemplateId? ReqQuestOnProgress => Requirements.ReqQuestOnProgress;
+
+    /// <summary>Gets the per-unit sell price for stackable items (WZ key <c>unitPrice</c>); 0.0 if unused.</summary>
+    public double UnitPrice => Requirements.UnitPrice;
 
     /// <summary>Gets the physical attack value.</summary>
     public int Pad => Effects.Pad;

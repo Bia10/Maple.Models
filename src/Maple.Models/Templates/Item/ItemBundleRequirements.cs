@@ -1,4 +1,4 @@
-using Maple.StrongId;
+﻿using Maple.StrongId;
 
 namespace Maple.Models.Templates.Item;
 
@@ -18,6 +18,7 @@ namespace Maple.Models.Templates.Item;
 /// <param name="IsAccountSharable">Whether the item can be shared across characters on the same account.</param>
 /// <param name="ReqFields">Field IDs in which the item may be used; empty means unrestricted.</param>
 /// <param name="ReqQuestOnProgress">Quest that must be in the in-progress state for the item to be usable.</param>
+/// <param name="UnitPrice">Per-unit sell price for stackable items (WZ key <c>unitPrice</c>, C++ field <c>dSellUnitPrice</c>). 0.0 means use <see cref="SellPrice"/> as a flat price.</param>
 public sealed record ItemBundleRequirements(
     int MaxPerSlot,
     int SellPrice,
@@ -31,5 +32,6 @@ public sealed record ItemBundleRequirements(
     bool IsPartyQuest = false,
     bool IsAccountSharable = false,
     IReadOnlyList<FieldTemplateId>? ReqFields = null,
-    QuestTemplateId? ReqQuestOnProgress = null
+    QuestTemplateId? ReqQuestOnProgress = null,
+    double UnitPrice = 0.0
 );
